@@ -1,0 +1,118 @@
+<mat-grid-list cols="1" rowHeight="4rem">
+    <mat-grid-tile>
+        <div class="text-inside-grid">
+            <h3>Edição de Clientes</h3>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<form [formGroup]="formCliente" (ngSubmit)="onSubmit()">
+
+    <input type="hidden" formControlName="id"/>
+
+    <mat-grid-list cols="4" rowHeight="6rem">
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome do cliente:</mat-label>
+                <input matInput type="text" formControlName="nome" />
+                <mat-error *ngIf="form.nome.touched && form.nome.invalid">
+                    <div *ngIf="form.nome.errors.required">
+                        Por favor, informe o nome do cliente.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Data de nascimento:</mat-label>
+                <input matInput type="date" formControlName="dataNascimento" />
+                <mat-error *ngIf="form.dataNascimento.touched && form.dataNascimento.invalid">
+                    <div *ngIf="form.dataNascimento.errors.required">
+                        Por favor, informe a data de nascimento do cliente.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefone:</mat-label>
+                <input matInput type="text" formControlName="telefone" mask="(00) 00000-0000" />
+                <mat-error *ngIf="form.telefone.touched && form.telefone.invalid">
+                    <div *ngIf="form.telefone.errors.required">
+                        Por favor, informe o telefone do cliente.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Escolha o tipo:</mat-label>
+                <select matNativeControl formControlName="tipo">
+                    <option value="">Selecione</option>
+                    <option value="Preferencial">Cliente Preferencial</option>
+                    <option value="Comum">Cliente Comum</option>
+                </select>
+                <mat-error *ngIf="form.tipo.touched && form.tipo.invalid">
+                    <div *ngIf="form.tipo.errors.required">
+                        Por favor, selecione o tipo do cliente.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="4" rowHeight="6rem">
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input matInput type="text" formControlName="email"/>
+                <mat-error *ngIf="form.email.touched && form.email.invalid">
+                    <div *ngIf="form.email.errors.required">
+                        Por favor, informe o email do cliente.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Cpf:</mat-label>
+                <input matInput type="text" formControlName="cpf" mask="000.000.000-00"/>
+                <mat-error *ngIf="form.cpf.touched && form.cpf.invalid">
+                    <div *ngIf="form.cpf.errors.required">
+                        Por favor, informe o cpf do cliente.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="10rem">
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-label>Observações do Cliente:</mat-label>
+                <textarea matInput rows="4" formControlName="observacoes"></textarea> 
+                <mat-error *ngIf="form.observacoes.touched && form.observacoes.invalid">
+                    <div *ngIf="form.observacoes.errors.required">
+                        Por favor, informe as observações do cliente.
+                    </div>
+                </mat-error> 
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="3rem">
+        <mat-grid-tile>
+            <div class="button-inside-grid">
+                <button type="submit" mat-raised-button color="primary"
+                    [disabled]="!formCliente.valid">
+                    Salvar Alterações
+                </button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</form>
+
+<p class="message">
+    <strong>{{mensagem}}</strong>
+</p>

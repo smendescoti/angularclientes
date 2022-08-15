@@ -1,0 +1,13 @@
+<mat-grid-list cols="1" rowHeight="4rem">
+    <mat-grid-tile>
+        <h3>Dashboard</h3>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="28rem">
+    <mat-grid-tile>
+        <div [chart]="graficoTipos"></div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div [chart]="graficoPeriodos"></div>
+    </mat-grid-tile>
+</mat-grid-list>

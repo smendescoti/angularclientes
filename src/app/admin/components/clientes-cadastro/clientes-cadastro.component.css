@@ -1,0 +1,37 @@
+.mat-form-field {
+    width: 100%;
+    padding: 10px;
+}
+
+.text-inside-grid {
+    position: absolute;
+    left: 10px;
+}
+
+.button-inside-grid {
+    position: absolute;
+    left: 2px;
+    padding: 10px;
+}
+
+.mat-raised-button {
+    font-size: 14pt;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 56px;
+    padding: 10px;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    color: forestgreen;
+    font-weight: bold;
+}
+
+p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
